@@ -1,0 +1,15 @@
+version: '2'
+services:
+    esope_tools-app:
+        image: esope_tools
+        external_links:
+            - esope_tools-mysql:mysql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/esope_tools?useUnicode=true&characterEncoding=utf8&useSSL=false
+        ports:
+            - 8080:8080
+    esope_tools-mysql:
+        extends:
+            file: mysql.yml
+            service: esope_tools-mysql

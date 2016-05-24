@@ -1,0 +1,14 @@
+version: '2'
+services:
+    esope_tools-mysql:
+        container_name: esope_tools-mysql
+        image: mysql:5.7.11
+        # volumes:
+        #     - ~/volumes/jhipster/esope_tools/mysql/:/var/lib/mysql/
+        environment:
+            - MYSQL_USER=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=esope_tools
+        ports:
+            - 3306:3306
+        command: mysqld --lower_case_table_names=1 --skip-ssl
